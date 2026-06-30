@@ -19,20 +19,33 @@
       opacity: 1;
     } 
     }
-.nav { 
-  background: transparent;
-  backdrop-filter: blur(10px);
-  padding: 15px; 
-  position: sticky; 
-  top: 0; 
-  width: 94%;
+    @keyframes animasi2 {
+      from{
+        scale: 0;
+      }
+      to{
+        scale: 1;
+      }
+    }
+    .nav {
+      padding: 0px;
+      background: transparent;
+      backdrop-filter: blur(10px);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      animation-name: animasi2;
+      animation-duration: 2s;
+    }
+.nav ul {
+  padding: 0;
+  text-decoration: none;
+  gap: 13px;
   display: flex;
-  gap: 20px;
-  z-index: 1000;
-  animation-name: animasi;
-  animation-duration: 3s;
 }
-
+li {
+  color: transparent;
+}
 
 .nav a { 
   color: white; 
@@ -141,16 +154,60 @@ font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   color: white;
   text-align: center;
 }
+  /* Styling untuk banner */
+  #announcement-banner {
+    background-color: #ffcc00;
+    color: #333;
+    text-align: center;
+    padding: 10px 20px;
+    font-family: sans-serif;
+    font-weight: bold;
+    position: relative; /* Diperlukan untuk posisi tombol silang */
+  }
+
+  /* Styling untuk tombol silang (X) */
+  #close-btn {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    border: none;
+    background: none;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    background-color: #929292;
+    color: #333;
+  }
   </style>
 </head>
 <body>
-  <div class="nav">
-    
-    <a href="#anggota">DAFTAR SISWA</a>
-    <a href="#tentang">TENTANG KAMI</a>
-    <a href="">PEMBUAT WEB</a>
+  <div class="nav" >
+    <ul>
+      <img src="12.jpg" width="10%" alt="">
+    <li> <a href="#anggota">DAFTAR SISWA</a></li>
+     <li>    <a href="#tentang">PEMBUAT WEB</a></li>
+     <li><a href="perbelanjaan.html">BELANJA</a></li>
+    </ul>
+
   </div>
   
+    <div id="announcement-banner">
+      <p>
+            New Update:
+            <br>
+    -Menambahkan fitur belanja🛒(COMING SOON)
+    <br>
+    -Menambahkan animasi yang smooth🤩
+    <br>
+    -Memperbaiki bug👾
+    <br>
+    -Navigasi baru👍
+    
+      </p>
+
+    <button id="close-btn" onclick="hideBanner()">X</button>
+  </div>
     <video class="vidio1" src="luffy.mp4" autoplay="" loop="" muted=""> vidio1</video>
   
   <section id="home" class="home">
@@ -340,5 +397,11 @@ font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   
 </section>
 
+<script>
+  function hideBanner() {
+      var banner = document.getElementById('announcement-banner');
+      banner.style.display = 'none';
+    }
+</script>
 </body>
 </html>
